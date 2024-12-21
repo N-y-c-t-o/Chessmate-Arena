@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    max-width: 80%;
+    overflow-x: hidden;
+    background-color: white;
+    /* --grad-clr1: #141E30;
+    --grad-clr2: #243B55;; */
+    color: #141E30 ;
+}
+
+header{
+    margin-top: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100px;
+    padding: 1rem 9%;
+    background-color: #243B55;
+    filter: drop-shadow(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    
+}
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo h1{
+    color:white;
+    font-size: 18px;
+}
+.logo img{
+    margin-left: -70px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.logo img:hover{
+    transform: scale(1.2);
+}
+
+nav a{
+    font-size: 1.8rem;
+    color: black;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+/* Style for the select box */
+nav select {
+    background-color: #243B55;
+    color: black; 
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left:20px;
+}
+
+nav select option {
+    background-color: #243B55;
+    color: black; 
+    padding: 8px;
+}
+
+nav select option:hover {
+    background-color: #141E30;
+    color: black;
+}
+/*  Additional styling for the dropdown when opened */
+ nav select:focus {
+    outline: none; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+} 
+
+nav a:hover,
+nav a.active{
+    color:black;
+    border-bottom: 3px solid black;
+}
+header nav .account{
+    position: relative;
+    margin-left: 100px;
+    width:120px;
+    display:inline; 
+}
+header nav .account img{
+    position: absolute;
+    width:50px;
+    border-radius: 50%;
+    margin-top: -15px;
+    
+}
+
+header nav span{
+    margin-top: 0px;
+    margin-right: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    z-index: 1;
+    color:rgb(24, 21, 21);
+}
+
+#name{
+    margin-top: 100px;
+    width: 100%;
+    height:100px;
+}
+ #home{
+    position: relative;
+    width:100%;
+    font-size:1.5rem;
+    padding:170px;;
+    background-color: white;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.welcome-message {  
+    color:#141E30;
+    text-align: center;
+    padding: 30px;
+    margin: 0 auto;
+    width: 70%;
+}
+.welcome-message h4{
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+.welcome-message h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5em;
+    margin:15px 0;
+}
+
+.welcome-message p {
+    width:80%;
+    font-family:  sans-serif;
+    font-size: 14px;
+    margin:0 auto;
+    font-weight: 700;
+}
+.welcome-message span{
+    color:orange;
+}
+.chessBoard {
+    width:400px;
+    height: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border:3px double black;
+  }
+  
+  .square {
+    width:12.5%;
+    height: 12.5%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .white {
+    background-color: whitesmoke;
+  }
+  .black {
+    background-color: #405c7c;
+    /* background-color: #b58863; */
+  }
+  .coordinate {
+    height:auto;
+    display:flex;
+    bottom: 4%;
+    left:4%;
+    position: absolute;
+    font-size: 8px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .rank {
+    top:4%;
+    right:4%;
+    left:auto;
+  }
+  .whiteText {
+    color:whitesmoke;
+    /* color:#f0d9b5; */
+  }
+  .blackText {
+    color:#243B55;
+  }
+  .piece {
+    width:100%;
+    z-index: 1;
+    cursor: pointer;
+  }
+  .piece img {
+    max-width: 100%;
+    width:100%;
+    height: auto;
+  }
+  .promotionOption{
+    border-radius: 50%;
+    background-color: darkgray;
+    transition: transform 0.2s;
+    position: absolute;
+    z-index: 1000;
+  }
+  .promotionOption:hover {
+    cursor: pointer;
+    border-radius: 0%;
+    background-color:#539B0C;
+    width: 100%;
+  }
+  .promotionOption img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+  #alert {
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    color:rgb(0, 176, 67);
+    width:100px;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    font-size:xxx-large;
+    font-weight: bold;
+    z-index: 1000;
+    display: none;
+  }
+
+
+#startGame{
+    width:100%; 
+    height:500px;
+    /* background-image: url('../chessboard.jpg');
+    background-size:contain;
+    background-position: center; 
+    background-repeat: no-repeat; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    background-color: #141E30;
+}
+
+.container {
+    text-align: center;
+    background-color: #243B55;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 550px;
+}
+
+.container nav h2 {
+    font-size: 30px;
+    margin:20px 0px 30px 0;
+    color: white;
+}
+
+.container nav button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color:black ;
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container nav button:hover {
+    color:white;
+    background-color: #1d2a42;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);;
+}
+#learn{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding:50px;
+    background-color:white;
+}
+#learn h1{
+    width: 100%;
+    float: left;
+    color:#243B55;
+    font-size: 30px;
+    font-family: 'Poppins',sans-serif;
+}
+#learn .video{
+    margin-top:50px;
+    display:flex;
+    flex-direction: column;
+    background-color: white;
+}
+#learn .video .row{
+    margin:20px  0px;
+    padding:20px 0px;
+    border-bottom: 15px solid #141E30;
+}
+#learn .video iframe{
+    margin-left:15px;
+}
+#learn .btnContainer {
+    position: relative;
+    width:100%;
+    height:80px;
+}
+#learn .btnContainer button{
+    position: absolute;
+    right: 50px;
+    bottom: 0;
+    background-color: #243B55;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+#learn .btnContainer button {
+    background-color: #141E30;
+}
+
+#chess-news {
+    background-color: #141E30; /* Dark background */
+    padding: 20px;
+    margin: 20px 0 40px 0;
+    color: white; /* Text color for better contrast */
+}
+
+#chess-news h1 {
+    font-size: 30px;
+    text-align: center;
+    color: #243B55; /* Slightly lighter blue for the header */
+    margin-bottom: 20px;
+}
+
+#chess-news article {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-bottom: 1px solid #243B55; /* Border to separate articles */
+    background-color: #243B55; /* Background for articles */
+    border-radius: 5px;
+}
+
+#chess-news h2 {
+    font-size: 1.5em;
+    color: white; /* White title for readability */
+    margin-bottom: 10px;
+}
+
+#chess-news p {
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: #E0E0E0; /* Light grey for text */
+}
+
+#chess-news time {
+    font-size: 0.95em;
+    color: #999; /* Grey for dates */
+}
+footer{
+    background-color: #141E30;
+    color: whitesmoke;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+.social-icons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 0.2rem solid white;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease;
+    color: white;
+}
+
+.social-icons a:hover{
+    color: white;
+    transform: scale(1.3) translateY(-5px);
+    background-color: black;
+    box-shadow: 0  0 25px black;
+}
+
